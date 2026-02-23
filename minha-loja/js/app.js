@@ -78,7 +78,7 @@
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
    const PRODUCTS = [
-     { id:"p1", name:"Produto 1", price: 96.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
+     { id:"p1", name:"136 - JP Scandal F 25ml", price: 96.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
      { id:"p2", name:"Produto 2", price: 82.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
      { id:"p3", name:"Produto 3", price: 89.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
      { id:"p4", name:"Produto 4", price: 83.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
