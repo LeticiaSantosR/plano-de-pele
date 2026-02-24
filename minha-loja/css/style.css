@@ -84,7 +84,51 @@ img{ display:block; max-width:100%; }
   padding:8px 10px;
   cursor:pointer;
 }
+/* ===== MOBILE: Corrigir vitrines (carBest / carRare) estilo Shopee ===== */
+@media (max-width: 768px){
 
+  /* faz o track virar carrossel horizontal */
+  #carBest, #carRare{
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    padding: 6px 4px 12px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* cada item dentro do carrossel (card) */
+  #carBest > *, #carRare > *{
+    flex: 0 0 72% !important;      /* tamanho do card no celular */
+    max-width: 72% !important;
+    scroll-snap-align: start;
+  }
+
+  /* impede imagens gigantes / quebradas dentro dos cards */
+  #carBest img, #carRare img{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;          /* imagem quadrada */
+    object-fit: cover !important;
+    display: block !important;
+    background: #f2f2f2;
+  }
+
+  /* ===== GRID (Todos os produtos) em 2 colunas ===== */
+  .products-grid, #productsGrid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .products-grid img, #productsGrid img{
+    width: 100% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover !important;
+    display:block !important;
+    background:#f2f2f2;
+  }
+}
 /* Nav categories */
 .nav{ border-top:1px solid var(--line); }
 .nav-row{ display:flex; gap:10px; padding:10px 16px; align-items:center; }
@@ -701,4 +745,5 @@ img{ display:block; max-width:100%; }
   .cat-btn{ white-space: nowrap; }
 
 }
+
 
