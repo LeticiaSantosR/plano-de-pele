@@ -78,12 +78,17 @@
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
    const PRODUCTS = [
-     { id:"p1", name:"136 - JP Scandal F 25ml", price: 96.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
-     { id:"p2", name:"087 - Olympea F 25ml", price: 82.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
-     { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 89.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
-     { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 83.90, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
-     { id:"p5", name:"Produto 5", price: 86.90, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p5.jpg" },
-     { id:"p6", name:"Produto 6", price: 89.90, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
+     { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
+     { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
+     { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
+     { id:"p5", name:"233 - Armani Because It’s You F - 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p5.jpg" },
+     { id:"p6", name:"159 - YSL Libre F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p7", name:"420 - Dior Etoile Bonne - 25ml (Infantil)", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p8", name:"116 - Invictus Paco Rabanne M 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p9", name:"238- Idole Lancôme F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p10", name:"093 - Dolce & Gabanna Light Blue F 25 ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p11", name:"Produto 6", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
    ];
    
    function formatBRL(v){
