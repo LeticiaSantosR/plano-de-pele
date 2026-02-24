@@ -665,3 +665,45 @@ img{ display:block; max-width:100%; }
     opacity: .8 !important;
   }
 }
+/* ==========================================
+   BENEFÍCIOS MOBILE PROFISSIONAL (2x2)
+========================================== */
+@media (max-width: 768px){
+
+  .benefits-grid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+  }
+
+  .benefit{
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,.05) !important;
+  }
+
+  .benefit img{
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+  }
+
+  .benefit strong{
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    display:block;
+  }
+
+  .benefit span{
+    font-size: 11px !important;
+    opacity: .7 !important;
+  }
+}
