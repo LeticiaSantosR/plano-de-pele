@@ -524,3 +524,110 @@ img{ display:block; max-width:100%; }
   }
 
 }
+/* ===================================================
+   MOBILE AJUSTE FINO (Shopee style) - cole no FINAL
+=================================================== */
+@media (max-width: 768px){
+
+  /* espaço geral */
+  .wrap, .main, main.wrap.main{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* ===== Header: ícones maiores e alinhados ===== */
+  header .wrap, .header .wrap{
+    grid-template-columns: 48px 1fr 58px !important;
+    gap: 10px !important;
+  }
+
+  /* botão menu/carrinho maiores (tava pequeno) */
+  .menu-btn, #menuBtn, .hamburger{
+    width: 48px !important;
+    height: 48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .cart-btn, #cartBtn{
+    width: 58px !important;
+    height: 48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  /* se o ícone for SVG ou IMG dentro */
+  .menu-btn svg, #menuBtn svg, .hamburger svg,
+  .cart-btn svg, #cartBtn svg{
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* ===== Benefícios: 2 colunas compactas ===== */
+  .benefits{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .benefit, .benefits .card{
+    padding: 8px !important;
+    border-radius: 12px !important;
+  }
+
+  /* ===== Cards mais compactos e proporcionais ===== */
+  #productsGrid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .card{
+    border-radius: 14px !important;
+  }
+
+  /* imagem menor e sem “gigante” */
+  .card-img img{
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+  }
+
+  .card-body{
+    padding: 8px !important;
+    gap: 5px !important;
+  }
+
+  .card-title{
+    font-size: 12.5px !important;
+    min-height: 30px !important;
+  }
+
+  .card-sub{
+    font-size: 11px !important;
+  }
+
+  .price{
+    font-size: 15px !important;
+  }
+
+  .pix{
+    font-size: 11.5px !important;
+  }
+
+  /* botão comprar menor e mais bonito */
+  .card button{
+    margin: 8px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+
+  /* ===== Carrossel: cards menores e com “snap” ===== */
+  #carBest > *, #carRare > *{
+    flex: 0 0 66% !important;
+    max-width: 66% !important;
+  }
+
+  /* títulos um pouco menores */
+  .section-head h2{
+    font-size: 17px !important;
+  }
+}
