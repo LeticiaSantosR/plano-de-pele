@@ -87,17 +87,17 @@
   category:"25ml",
   image:"img/produtos/p1.jpg"
 },
-     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
-     { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
-     { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
-     { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
-     { id:"p5", name:"233 - Armani Because It’s You F - 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p5.jpg" },
-     { id:"p6", name:"159 - YSL Libre F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
-     { id:"p7", name:"420 - Dior Etoile Bonne - 25ml (Infantil)", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p7.jpg" },
-     { id:"p8", name:"116 - Invictus Paco Rabanne M 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p8.jpg" },
-     { id:"p9", name:"238- Idole Lancôme F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p9.jpg" },
-     { id:"p10", name:"093 - Dolce & Gabanna Light Blue F 25 ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p10.jpg" },
-     { id:"p11", name:"Produto 6", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
+     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido",category: "Perfumes 25ml", image:"img/produtos/p1.jpg" },
+     { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido",category: "Perfumes 25ml", image:"img/produtos/p2.jpg" },
+     { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido",category: "Perfumes 25ml", image:"img/produtos/p3.jpg" },
+     { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", category: "Perfumes 25ml",image:"img/produtos/p4.jpg" },
+     { id:"p5", name:"233 - Armani Because It’s You F - 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml", image:"img/produtos/p5.jpg" },
+     { id:"p6", name:"159 - YSL Libre F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml", image:"img/produtos/p6.jpg" },
+     { id:"p7", name:"420 - Dior Etoile Bonne - 25ml (Infantil)", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml", image:"img/produtos/p7.jpg" },
+     { id:"p8", name:"116 - Invictus Paco Rabanne M 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", category: "Perfumes 25ml",image:"img/produtos/p8.jpg" },
+     { id:"p9", name:"238- Idole Lancôme F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml", image:"img/produtos/p9.jpg" },
+     { id:"p10", name:"093 - Dolce & Gabanna Light Blue F 25 ml", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml", image:"img/produtos/p10.jpg" },
+     { id:"p11", name:"Produto 6", price: 79.00, pixOff: 0.07, tag:"Raridade",category: "Perfumes 25ml",image:"img/produtos/p6.jpg" },
    ];
    
    function formatBRL(v){
@@ -251,13 +251,9 @@
      $("#productsGrid").innerHTML = list.map(cardHTML).join("");
    }
    
-   function renderCarousels(){
-     const best = PRODUCTS.filter(p => (p.tag || "").toLowerCase().includes("mais"));
-     const rare = PRODUCTS.filter(p => (p.tag || "").toLowerCase().includes("rar"));
-     $("#carBest").innerHTML = best.map(cardHTML).join("");
-     $("#carRare").innerHTML = rare.map(cardHTML).join("");
-   }
-   
+   function renderAllProducts(list = PRODUCTS){
+     $("#productsGrid").innerHTML = list.map(cardHTML).join("");
+}
    /* ===== Carrinho (localStorage) ===== */
    const CART_KEY = "loja_cart_v3";
    
@@ -506,3 +502,55 @@
   const filtered = PRODUCTS.filter(p => p.category === category);
   renderProducts(filtered);
 }
+// ===== Filtro de Categorias (Loja grande) =====
+function setActiveCategoryBtn(btn){
+  document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("is-active"));
+  if (btn) btn.classList.add("is-active");
+}
+
+function updateCatCount(label, total){
+  const el = document.getElementById("catCount");
+  if (!el) return;
+  el.textContent = `Mostrando: ${label} (${total})`;
+}
+
+// Ajuste este ID se você quiser rolar para outro lugar.
+// Aqui ele rola para a VITRINE 1 (Mais vendidos), que já existe:
+function scrollToShowcase(){
+  const target = document.querySelector("section.section"); // primeira vitrine
+  if (!target) return;
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+/**
+ * category: "all" | "25ml" | "Kits" | "80/100ml" | "Árabes"
+ * btn: botão clicado (opcional)
+ */
+function filterByCategory(category, btn){
+  // botão ativo
+  setActiveCategoryBtn(btn);
+
+  // filtra
+  let list = PRODUCTS;
+  let label = "todos";
+
+  if (category && category !== "all"){
+    list = PRODUCTS.filter(p => (p.category || "").toLowerCase() === String(category).toLowerCase());
+    label = category;
+  }
+
+  // renderiza (usa sua função existente)
+  if (typeof renderProducts === "function"){
+    renderAllProducts(list);
+  } else {
+    console.warn("renderProducts() não encontrada. Me manda seu app.js que eu ajusto.");
+  }
+
+  updateCatCount(label, list.length);
+  scrollToShowcase();
+}
+
+// Ao carregar, deixa contador correto em "Todos"
+document.addEventListener("DOMContentLoaded", () => {
+  updateCatCount("todos", (Array.isArray(PRODUCTS) ? PRODUCTS.length : 0));
+});
