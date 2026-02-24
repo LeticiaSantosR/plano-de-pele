@@ -540,11 +540,12 @@ function filterByCategory(category, btn){
   }
 
   // renderiza (usa sua função existente)
-  if (typeof renderProducts === "function"){
-    renderAllProducts(list);
-  } else {
-    console.warn("renderProducts() não encontrada. Me manda seu app.js que eu ajusto.");
-  }
+ // renderiza usando a função certa
+if (typeof renderAllProducts === "function"){
+  renderAllProducts(list);
+} else {
+  console.warn("renderAllProducts() não encontrada. Verifique o nome da função.");
+}
 
   updateCatCount(label, list.length);
   scrollToShowcase();
