@@ -707,3 +707,68 @@ img{ display:block; max-width:100%; }
     opacity: .7 !important;
   }
 }
+/* ==========================================
+   BENEFÍCIOS MOBILE – LOJA GRANDE (harmonioso)
+========================================== */
+@media (max-width: 768px){
+
+  .benefits-grid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin-top: 14px !important;
+  }
+
+  .benefit{
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+
+    padding: 14px 14px !important;
+    border-radius: 16px !important;
+
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.06) !important;
+
+    min-height: 78px !important; /* deixa todos iguais */
+  }
+
+  /* ÍCONE MAIOR e com “bolinha” atrás (premium) */
+  .benefit img{
+    width: 36px !important;
+    height: 36px !important;
+    object-fit: contain !important;
+    flex: 0 0 auto !important;
+
+    background: rgba(0,0,0,.04) !important;
+    border-radius: 12px !important;
+    padding: 7px !important;
+  }
+
+  .benefit > div{
+    min-width: 0 !important;
+  }
+
+  .benefit strong{
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display:block !important;
+  }
+
+  .benefit span{
+    font-size: 12px !important;
+    opacity: .75 !important;
+    margin-top: 4px !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display:block !important;
+  }
+}
