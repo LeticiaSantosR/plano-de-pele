@@ -227,7 +227,7 @@
    
            <div class="price-row">
              <div class="price">${formatBRL(p.price)}</div>
-             <div class="pix">${formatBRL(pix)} no pix</div>
+             
            </div>
    
            <div class="actions">
@@ -491,4 +491,5 @@
      wireEvents();
    }
    
+
    document.addEventListener("DOMContentLoaded", init);
