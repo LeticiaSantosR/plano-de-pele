@@ -78,7 +78,7 @@
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
    const PRODUCTS = [
-     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p1.jpg" },
+     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", category:"Perfumes 25ml", image:"img/produtos/p1.jpg" },
      { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
      { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
      { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
