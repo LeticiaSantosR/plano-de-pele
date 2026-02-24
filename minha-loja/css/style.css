@@ -447,4 +447,15 @@ img{ display:block; max-width:100%; }
   .grid{ grid-template-columns: 1fr; }
   .benefits-grid{ grid-template-columns: 1fr; }
   .car-btn{ display:none; }
+
+}
+
+/* ===== AJUSTE MOBILE PROFISSIONAL ===== */
+@media (max-width: 768px) {
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
 }
