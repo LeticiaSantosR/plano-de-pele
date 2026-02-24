@@ -447,4 +447,204 @@ img{ display:block; max-width:100%; }
   .grid{ grid-template-columns: 1fr; }
   .benefits-grid{ grid-template-columns: 1fr; }
   .car-btn{ display:none; }
+
+}
+/* =========================================================
+   MOBILE PRO (layout completo) - cole no FINAL do style.css
+========================================================= */
+@media (max-width: 768px){
+
+  /* ===== Base ===== */
+  html, body{ overflow-x:hidden; }
+  .wrap, .main, main.wrap.main{
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* ===== Topo / Header ===== */
+  header, .header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+
+  .header .wrap,
+  header .wrap{
+    display: grid !important;
+    grid-template-columns: 44px 1fr 54px;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* botão menu (hamburguer) e carrinho ficam certinhos */
+  .menu-btn, #menuBtn, .hamburger{ width:44px; height:44px; }
+  .cart-btn, #cartBtn{ width:54px; height:44px; }
+
+  /* logo menor no mobile */
+  .logo img, #logo img{
+    height: 34px !important;
+    width: auto !important;
+  }
+
+  /* barra de busca (se existir) ocupa a linha */
+  .search, .searchbar, #searchBox{
+    grid-column: 1 / -1;
+    width: 100% !important;
+    margin-top: 8px;
+  }
+
+  /* ===== Banner / Slides ===== */
+  .hero, .slider, .banner{
+    border-radius: 16px !important;
+    overflow: hidden;
+  }
+  .hero{ min-height: 200px !important; }
+
+  /* ===== Benefícios (4 vira 2x2) ===== */
+  .benefits{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .benefit, .benefits .card{
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+  .benefit img{ width: 22px !important; height: 22px !important; }
+
+  /* ===== Barra de categorias (rolagem horizontal) ===== */
+  .category-bar{
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 10px 10px !important;
+    border-radius: 14px !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .category-bar > *{ scroll-snap-align: start; }
+  .cat-btn{
+    white-space: nowrap !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    border-radius: 999px !important;
+  }
+
+  /* ===== Seções / títulos ===== */
+  .section{ margin-top: 18px !important; }
+  .section-head{
+    display:flex !important;
+    align-items:center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  .section-head h2{ font-size: 18px !important; }
+
+  /* ===== Vitrines (Mais vendidos / Raridades) - carrossel de cards pequenos ===== */
+  #carBest, #carRare{
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    padding: 6px 4px 12px !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  #carBest > *, #carRare > *{
+    flex: 0 0 72% !important;
+    max-width: 72% !important;
+    scroll-snap-align: start;
+  }
+
+  /* ===== Grid (Todos os produtos) ===== */
+  .products-grid, #productsGrid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  /* ===== Cards (serve pro carrossel e pro grid) ===== */
+  .product-card, .card, .product{
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+    box-shadow: 0 10px 22px rgba(0,0,0,.06) !important;
+    display:flex !important;
+    flex-direction: column !important;
+  }
+
+  .product-card img, .card img, .product img,
+  #carBest img, #carRare img,
+  #productsGrid img{
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    display: block !important;
+    background: #f2f2f2 !important;
+  }
+
+  .product-card .content, .card .content, .product-info, .card-body{
+    padding: 10px !important;
+    display:flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    flex: 1 !important;
+  }
+
+  .product-name, .card-title, .product-card h3{
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 32px !important;
+  }
+
+  .price, .product-price{
+    font-size: 16px !important;
+    font-weight: 900 !important;
+  }
+
+  .muted, .subprice, .product-pix{
+    font-size: 12px !important;
+    opacity: .75 !important;
+  }
+
+  /* botão Comprar padrão */
+  .product-card button, .card button, .btn-add, .add-to-cart{
+    margin: 10px !important;
+    margin-top: auto !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+  }
+
+  /* ===== Drawer/Carrinho (se existir) ===== */
+  .drawer, #cartDrawer{
+    width: 92vw !important;
+    max-width: 420px !important;
+  }
+
+  /* ===== WhatsApp flutuante não atrapalhar ===== */
+  .whatsapp-float, #wppFloat{
+    width: 56px !important;
+    height: 56px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+
+  /* ===== Rodapé ===== */
+  footer, .footer{
+    margin-top: 24px !important;
+    padding-bottom: 28px !important;
+  }
 }
