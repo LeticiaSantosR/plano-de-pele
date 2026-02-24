@@ -631,3 +631,37 @@ img{ display:block; max-width:100%; }
     font-size: 17px !important;
   }
 }
+/* BENEFÍCIOS NO CELULAR: 2 POR LINHA (2x2) */
+@media (max-width: 768px){
+  .benefits{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .benefit, .benefits .card{
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .benefit img, .benefits img{
+    width: 22px !important;
+    height: 22px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .benefit strong, .benefits strong,
+  .benefit b, .benefits b{
+    font-size: 13px !important;
+    line-height: 1.1 !important;
+  }
+
+  .benefit small, .benefits small,
+  .benefit span, .benefits span{
+    font-size: 11px !important;
+    opacity: .8 !important;
+  }
+}
