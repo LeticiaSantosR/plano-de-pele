@@ -239,6 +239,8 @@ Especificações:
          <div class="card-img"><img src="${p.image}" alt="${p.name}"></div>
          <div class="card-body">
            <div class="card-title">${p.name}</div>
+           ${p.descriptionShort ? `<p class="card-desc">${p.descriptionShort}</p>` : ""}
+${p.descriptionFull ? `<button class="btn-ghost" onclick="openProductModal('${p.id}')">Ver detalhes</button>` : ""}
            <div class="card-sub">${p.tag || ""}</div>
    
            <div class="price-row">
@@ -509,4 +511,5 @@ Especificações:
    
 
    document.addEventListener("DOMContentLoaded", init);
+
 
