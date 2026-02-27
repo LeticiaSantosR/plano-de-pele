@@ -508,8 +508,39 @@ ${p.descriptionFull ? `<button class="btn-ghost" onclick="openProductModal('${p.
      wireCarouselButtons();
      wireEvents();
    }
-   
+   function openProductModal(productId){
+  const p = PRODUCTS.find(x => x.id === productId);
+  if (!p) return;
+
+  const modal = document.getElementById("productModal");
+  const img = document.getElementById("modalImg");
+  const title = document.getElementById("modalTitle");
+  const price = document.getElementById("modalPrice");
+  const text = document.getElementById("modalText");
+  const buyBtn = document.getElementById("modalBuyBtn");
+
+  img.src = p.image;
+  img.alt = p.name;
+  title.textContent = p.name;
+  price.textContent = typeof formatBRL === "function" ? formatBRL(p.price) : `R$ ${p.price}`;
+  text.textContent = p.descriptionFull || p.descriptionShort || "";
+
+  buyBtn.onclick = () => {
+    if (typeof addToCart === "function") addToCart(p.id);
+    closeProductModal();
+  };
+
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProductModal(){
+  const modal = document.getElementById("productModal");
+  modal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
 
    document.addEventListener("DOMContentLoaded", init);
+
 
 
