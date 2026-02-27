@@ -223,8 +223,7 @@
        <article class="card">
          <div class="card-img"><img src="${p.image}" alt="${p.name}"></div>
          <div class="card-body">
-           <div class="card-title">${p.name}</div>
-          ${p.description ? `<div class="card-desc">${p.description}</div>` : ""}
+           <div class="card-title">${p.name}</div>        
             <div class="card-sub">${p.tag || ""}</div>
    
            <div class="price-row">
@@ -525,6 +524,7 @@ function closeProductModal(){
 }
 
    document.addEventListener("DOMContentLoaded", init);
+
 
 
 
