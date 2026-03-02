@@ -1227,6 +1227,25 @@ img{ display:block; max-width:100%; }
 .card *{
   pointer-events: auto;
 }
+.card{
+  cursor:pointer;
+  position:relative;
+  z-index:1;
+}
 
+.card *{
+  pointer-events: none;
+}
+
+.card{
+  pointer-events: auto;
+}
+.pmodal{
+  display:none;
+}
+
+.pmodal.open{
+  display:block;
+}
 
 
