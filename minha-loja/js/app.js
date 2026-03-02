@@ -547,7 +547,7 @@ document.body.addEventListener("click", (e) => {
      const cart = loadCart();
      renderCart(cart);
    
-     wireCarouselButtons();
+     // wireCarouselButtons();
      wireEvents();
    }
    function openProductModal(productId){
@@ -666,6 +666,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
