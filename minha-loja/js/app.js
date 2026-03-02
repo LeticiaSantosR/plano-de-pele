@@ -713,7 +713,7 @@ Contém 25ml`,
   const modal = document.getElementById("productModal");
   modal.classList.add("hidden");
   document.body.style.overflow = "";
-}
+
 
    document.addEventListener("DOMContentLoaded", init);
 
@@ -799,6 +799,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
