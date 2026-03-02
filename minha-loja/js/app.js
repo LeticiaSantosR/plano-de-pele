@@ -127,7 +127,23 @@ Brand Collection- N°087🥰
     tag: "Mais vendido",
     category: "Perfumes 25ml",
     image: "img/produtos/p3.jpg",
-    desc: ``,
+    desc: `Um perfume feminino oriental gourmand !!!
+
+Demonstra a sensualidade intensa e viciante da mulher irresistível, representando um jardim vistoso e repleto de mistérios, onde todos os pecados são permitidos.
+
+A fragrância reúne a originalidade e a beleza feminina celebrando um brinde ao fruto vermelho proibido.
+
+Nota de topo é Pera.
+
+Notas de coração são: Fava Tonka e Jasmim.
+
+Nota de fundo é Baunilha.
+
+Brandcollection Nº 324
+
+Contém 25 ml
+
+`,
   },
   {
     id: "p4",
@@ -137,7 +153,21 @@ Brand Collection- N°087🥰
     tag: "Mais vendido",
     category: "Perfumes 25ml",
     image: "img/produtos/p4.jpg",
-    desc: ``,
+    desc: `Inspiração : La Vie est belle 😍
+
+😍 La Vie est belle, um perfume extremamente sensual e Sedutor 💃 deixando você ainda mais poderosa deixando sua assinatura por onde passar 🥰
+
+🔸Familia Olfativa: Floral, Frutal, Gustativo
+
+🔸Notas de Topo: Cassis ou groselha preta e Pêra
+
+🔸Notas de Coração: Íris, Jasmin e Flor de Laranjeira
+
+🔸Notas de Fundo: Patchouli, Fava Tonka, Baunilha e Pralinê
+
+Contém  25ml
+
+Brand Collection- N°012🥰`,
   },
   {
     id: "p5",
@@ -147,7 +177,21 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p5.jpg",
-    desc: ``,
+    desc: `Inspiração perfume Because IT's You 😍
+
+Ela joga com seus poderes de sedução conforme a baunilha se mistura com almíscares, revelando uma sensualidade complexa e incrivelmente profunda
+
+🔸Familia Olfativa: Floral Frutal
+
+🔸Notas de Topo: Framboesa, Néroli e Limão Siciliano
+
+🔸Notas de Coração: Rosa
+
+🔸Notas de Fundo: Baunilha, Almíscar e Madeira de Âmbar
+
+Brand Collection - N°233🤩
+
+25ml`,
   },
   {
     id: "p6",
@@ -157,7 +201,21 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p6.jpg",
-    desc: ``,
+    desc: `Inspiração perfume Libre😍
+
+Fragrância pura e sensual, vibrante e conquistadora 💃
+
+Familia Olfativa: 🥰
+
+🔸Notas de topo são; de tangerina, lavanda, cassis ou groselha preta e petitgrain.
+
+🔸Notas de coração são; de jasmin, lavanda e flor de laranjeira.
+
+🔸Notas de fundo são de baunilha do Madagascar, cedro, ambargris e almíscar.,
+
+Brand Collection- N°159⚡
+
+25ml`,
   },
   {
     id: "p7",
@@ -167,7 +225,9 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p7.jpg",
-    desc: ``,
+    desc: `Perfume Infantil Compartilhável Brand Collection 420 Eau de Parfum - D´or Etoile
+Brand Collection 420 traduz o conforto de um abraço e a suavidade dos primeiros cuidados. Inspirado em Bonne Étoile Baby Dior, ele se abre com a delicadeza fresca da Pera Verde,
+trazendo sensação de limpeza e leveza imediata. No coração, a Rosa Silvestre floresce de forma suave e acolhedora, remetendo a carinho, proteção e afeto. Ao fundo, o Almíscar Branco envolve a pele com um toque macio, limpo e reconfortante, criando um rastro delicado e seguro.`,
   },
   {
     id: "p8",
@@ -177,7 +237,21 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p8.jpg",
-    desc: ``,
+    desc: `Inspiração perfume INVICTUS 🏆
+
+Ser vitorioso com o perfume Invictus! Um campeão invejado, um símbolo sexual. Ícone para homens, fantasia total para as mulheres!
+
+🔸Familia Olfativa: Amadeirado Aquático
+
+🔸Notas de Topo: Toranja, Notas oceânicas e Tangerina
+
+🔸Notas de Coração: Folha de Louro e Jasmin
+
+🔸Notas de Fundo: Madeira Guaiac, Musgo de Carvalho, Patchouli ou Oriza e Ambargris
+
+Brandcollection- N°116 😎
+
+25ml`,
   },
   {
     id: "p9",
@@ -187,7 +261,21 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p9.jpg",
-    desc: ``,
+    desc: `Inspiração : IDÔLE 😍
+
+“Ao longo dos anos, as mulheres se transformaram, se reinventaram. Lancôme segue essa evolução, continuando seu caminho o mais próximo possível das aspirações de cada mulher.
+
+🔸Familia Olfativa: Chipre, Floral
+
+🔸Notas de Topo: Bergamota, Pêra Suculenta e Pimenta Rosa
+
+🔸Notas de Coração: Rosa e Jasmim
+
+🔸Notas de Fundo: Musk Branco, Baunilha, Patchouli, Cedro
+
+Brandcollection- N°238🥰
+
+25ml`,
   },
   {
     id: "p10",
@@ -197,7 +285,17 @@ Brand Collection- N°087🥰
     tag: "Raridade",
     category: "Perfumes 25ml",
     image: "img/produtos/p10.jpg",
-    desc: ``,
+    desc: `Um Perfume feminino deliciosamente marcante. Ideal para mulheres modernas que gostam do estilo de vida elegante e casual.
+
+Notas de Topo:Maçã, Cedro, Câmpanula e Limão Siciliano
+
+Notas de Coração:Bambu, Rosa Branca e Jasmim
+
+Notas de Fundo:Âmbar, Cedro, e Almiscar.
+
+Brandcollection  N° 093
+
+Contém 25ml`,
   },
   {
     id: "p11",
@@ -726,6 +824,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
