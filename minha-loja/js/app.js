@@ -77,7 +77,7 @@
    /* ===== PRODUTOS =====
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
-  const PRODUCTS = [
+   const PRODUCTS = [
      { 
   id:"p1",
   name:"136 - JP Scandal F 25ml",
@@ -106,7 +106,7 @@ Ocasião: uso noturno, festas, outono/inverno.`
      { id:"p10", name:"093 - Dolce & Gabanna Light Blue F 25 ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p10.jpg" },
      { id:"p11", name:"Produto 6", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
    ];
-     
+   
    function formatBRL(v){
      return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
    }
@@ -352,61 +352,17 @@ Ocasião: uso noturno, festas, outono/inverno.`
      return lines.join("\n");
    }
    
-  // Delegação: comprar + carrinho inc/dec/remove + abrir modal do produto
-document.body.addEventListener("click", (e) => {
-  // 1) Primeiro: se clicou em botão do carrinho/compra, trata e sai
-  const btn = e.target.closest("button[data-action]");
-  if (btn) {
-    const action = btn.dataset.action;
-    const id = btn.dataset.id;
-
-    const cart = loadCart();
-
-    if (action === "add") {
-      cart[id] = (cart[id] || 0) + 1;
-      saveCart(cart);
-      renderCart(cart);
-      openDrawer("cartDrawer");
-      return;
-    }
-
-    if (action === "inc") {
-      cart[id] = (cart[id] || 0) + 1;
-      saveCart(cart);
-      renderCart(cart);
-      return;
-    }
-
-    if (action === "dec") {
-      const next = (cart[id] || 0) - 1;
-      if (next <= 0) delete cart[id];
-      else cart[id] = next;
-      saveCart(cart);
-      renderCart(cart);
-      return;
-    }
-
-    if (action === "remove") {
-      delete cart[id];
-      saveCart(cart);
-      renderCart(cart);
-      return;
-    }
-
-    return;
-  }
-
-  // 2) Se NÃO clicou em botão, verifica se clicou em um card do produto
-  const card = e.target.closest(".card[data-pid]");
-  if (!card) return;
-
-  const pid = card.dataset.pid;
-  const p = PRODUCTS.find(x => x.id === pid);
-  if (!p) return;
-
-  // chama a função que abre o modal (você já deve ter criado no passo 4)
-  openProductModal(p);
-});
+   /* ===== Eventos ===== */
+   function wireCarouselButtons(){
+     document.body.addEventListener("click", (e) => {
+       const b = e.target.closest("button.car-btn");
+       if(!b) return;
+       const car = b.dataset.car;
+       const dir = Number(b.dataset.dir);
+       const track = car === "best" ? $("#carBest") : $("#carRare");
+       track.scrollLeft += dir * 320;
+     });
+   }
    
    function wireEvents(){
      // Menu
@@ -547,67 +503,33 @@ document.body.addEventListener("click", (e) => {
      const cart = loadCart();
      renderCart(cart);
    
-     // wireCarouselButtons();
+     wireCarouselButtons();
      wireEvents();
    }
-  function priceBRL(v){
-  return (Number(v) || 0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
-}
-
-function installmentText(total, n){
-  const each = (Number(total) || 0) / (Number(n) || 1);
-  return `${n}x de ${priceBRL(each)} sem juros`;
-}
-
+   function openProductModal(productId){
   const p = PRODUCTS.find(x => x.id === productId);
   if (!p) return;
 
   const modal = document.getElementById("productModal");
-  const content = document.getElementById("productModalContent");
-  if (!modal || !content) return;
+  const img = document.getElementById("modalImg");
+  const title = document.getElementById("modalTitle");
+  const price = document.getElementById("modalPrice");
+  const text = document.getElementById("modalText");
+  const buyBtn = document.getElementById("modalBuyBtn");
 
-  const pricePix = Number(p.price) || 0;
-  const priceCard = Number(p.priceCard ?? 86.74) || 0;
-  const inst = Number(p.installments || 4);
+  img.src = p.image;
+  img.alt = p.name;
+  title.textContent = p.name;
+  price.textContent = typeof formatBRL === "function" ? formatBRL(p.price) : `R$ ${p.price}`;
+  text.textContent = p.descriptionFull || p.descriptionShort || "";
 
-  const desc = p.descriptionFull || p.desc || "Descrição em breve.";
+  buyBtn.onclick = () => {
+    if (typeof addToCart === "function") addToCart(p.id);
+    closeProductModal();
+  };
 
-  content.innerHTML = `
-    <div class="pm-grid">
-      <div class="pm-media">
-        <img class="pm-img" src="${p.image}" alt="${p.name}">
-      </div>
-
-      <div class="pm-info">
-        <h2 class="pm-title">${p.name}</h2>
-
-        <div class="pm-prices">
-          <div class="pm-line"><strong>${priceBRL(pricePix)}</strong> <span>no pix</span></div>
-          <div class="pm-line"><strong>${priceBRL(priceCard)}</strong> <span>no cartão</span></div>
-          <div class="pm-sub">${installmentText(priceCard, inst)}</div>
-        </div>
-
-        <div class="pm-desc">
-          ${String(desc).replace(/\n/g, "<br>")}
-        </div>
-
-        <button class="pm-buy" type="button" data-action="add" data-id="${p.id}">
-          Comprar
-        </button>
-      </div>
-    </div>
-  `;
-
-  modal.setAttribute("aria-hidden", "false");
+  modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
-}
-
-function closeProductModal(){
-  const modal = document.getElementById("productModal");
-  if (!modal) return;
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
 }
 
 function closeProductModal(){
@@ -700,25 +622,6 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
-
-document.addEventListener("click", (e) => {
-  // fechar modal (clicando overlay ou X)
-  if (e.target.matches("[data-close='1']")) {
-    closeProductModal();
-    return;
-  }
-
-  // abrir modal clicando no card
-  const card = e.target.closest(".card[data-pid]");
-  if (card) {
-    openProductModal(card.dataset.pid);
-  }
-});
-
-
-
-
-
 
 
 
