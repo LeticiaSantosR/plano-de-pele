@@ -352,17 +352,61 @@ Ocasião: uso noturno, festas, outono/inverno.`
      return lines.join("\n");
    }
    
-   /* ===== Eventos ===== */
-   function wireCarouselButtons(){
-     document.body.addEventListener("click", (e) => {
-       const b = e.target.closest("button.car-btn");
-       if(!b) return;
-       const car = b.dataset.car;
-       const dir = Number(b.dataset.dir);
-       const track = car === "best" ? $("#carBest") : $("#carRare");
-       track.scrollLeft += dir * 320;
-     });
-   }
+  // Delegação: comprar + carrinho inc/dec/remove + abrir modal do produto
+document.body.addEventListener("click", (e) => {
+  // 1) Primeiro: se clicou em botão do carrinho/compra, trata e sai
+  const btn = e.target.closest("button[data-action]");
+  if (btn) {
+    const action = btn.dataset.action;
+    const id = btn.dataset.id;
+
+    const cart = loadCart();
+
+    if (action === "add") {
+      cart[id] = (cart[id] || 0) + 1;
+      saveCart(cart);
+      renderCart(cart);
+      openDrawer("cartDrawer");
+      return;
+    }
+
+    if (action === "inc") {
+      cart[id] = (cart[id] || 0) + 1;
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+
+    if (action === "dec") {
+      const next = (cart[id] || 0) - 1;
+      if (next <= 0) delete cart[id];
+      else cart[id] = next;
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+
+    if (action === "remove") {
+      delete cart[id];
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+
+    return;
+  }
+
+  // 2) Se NÃO clicou em botão, verifica se clicou em um card do produto
+  const card = e.target.closest(".card[data-pid]");
+  if (!card) return;
+
+  const pid = card.dataset.pid;
+  const p = PRODUCTS.find(x => x.id === pid);
+  if (!p) return;
+
+  // chama a função que abre o modal (você já deve ter criado no passo 4)
+  openProductModal(p);
+});
    
    function wireEvents(){
      // Menu
@@ -622,6 +666,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
