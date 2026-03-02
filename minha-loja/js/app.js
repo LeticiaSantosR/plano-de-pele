@@ -757,11 +757,7 @@ function openProductModal(p){
   const content = document.getElementById("productModalContent");
   if (!modal || !content) return;
 
-  const pricePix = Number(p.price) || 0;
-  const priceCard = Number(p.priceCard ?? 86.74) || 0; // padrão se você quiser
-  const inst = Number(p.installments || 4);
-
-  const desc = (p.desc || "Descrição em breve.");
+  const desc = (p.desc ?? "");
 
   content.innerHTML = `
     <div class="pdetail">
@@ -771,42 +767,32 @@ function openProductModal(p){
 
       <div class="pdetail-info">
         <h2 class="pdetail-title">${p.name}</h2>
+      </div>
 
-        <div class="pdetail-prices">
-          <div class="pdetail-price">
-            <strong>${priceBRL(pricePix)}</strong>
-            <span>no Pix</span>
-          </div>
-
-          <div class="pdetail-price">
-            <strong>${priceBRL(priceCard)}</strong>
-            <span>no cartão • ${installmentText(priceCard, inst)}</span>
-          </div>
+      ${desc ? `
+        <div class="pdetail-desc">
+          <h3>Descrição do produto</h3>
+          <div class="pdetail-desc-text">${desc}</div>
         </div>
-
-        <button class="btn-buy" type="button" data-add="${p.id}">Adicionar ao carrinho</button>
-      </div>
-
-      <div class="pdetail-desc">
-        <h3>Descrição do produto</h3>
-        <div class="pdetail-desc-text">${desc}</div>
-      </div>
+      ` : ``}
     </div>
   `;
 
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
 function closeProductModal(){
   const modal = document.getElementById("productModal");
   modal?.classList.remove("open");
   modal?.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target?.getAttribute?.("data-close")){
-    closeProductModal();
+  if (e.target?.getAttribute?.("data-close")) closeProductModal();
+});
   }
 });
 document.addEventListener("click", (e) => {
@@ -825,6 +811,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
