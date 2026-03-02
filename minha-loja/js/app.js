@@ -219,7 +219,7 @@
    function cardHTML(p){
      const pix = pricePix(p.price, p.pixOff);
      return `
-       <article class="card">
+       <article class="card" data-pid="${p.id}"> 
          <div class="card-img"><img src="${p.image}" alt="${p.name}"></div>
          <div class="card-body">
            <div class="card-title">${p.name}</div>        
@@ -590,6 +590,7 @@ document.addEventListener("click", (e) => {
     closeProductModal();
   }
 });
+
 
 
 
