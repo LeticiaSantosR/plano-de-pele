@@ -590,6 +590,14 @@ document.addEventListener("click", (e) => {
     closeProductModal();
   }
 });
+document.addEventListener("click", (e) => {
+  const card = e.target.closest?.(".card[data-pid]");
+  if (!card) return;
+
+  const id = card.getAttribute("data-pid");
+  const p = (PRODUCTS || []).find(x => x.id === id);
+  if (p) openProductModal(p);
+});
 
 
 
