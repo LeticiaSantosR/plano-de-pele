@@ -78,41 +78,42 @@
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
    const PRODUCTS = [
-     { 
-  id:"p1",
-  name:"136 - JP Scandal F 25ml",
-  price: 79.00,
-  pixOff: 0.07,
-  tag:"Mais vendido",
-  category:"Perfumes 25ml",
-  image:"img/produtos/p1.jpg",
-  desc: `A Brand Collection N° 136 é inspirada no Scandal (Jean Paul Gaultier), um Chipre Floral Gourmand intenso, doce e sensual, com destaque para mel e notas florais. Ideal para noites e clima frio.
+  {
+    id:"p1",
+    name:"136 - JP Scandal F 25ml",
+    price: 79.00,
+    priceCard: 86.74,
+    installments: 4,
+    pixOff: 0.07,
+    tag:"Mais vendido",
+    category:"Perfumes 25ml",
+    image:"img/produtos/p1.jpg",
+    descriptionFull: `A Brand Collection N° 136 é inspirada no Scandal (Jean Paul Gaultier) — Chipre Floral Gourmand.
+Perfume intenso, doce e sensual, com destaque para mel e flores. Ideal para noites e clima frio.
 
 Notas Olfativas (inspiradas no original):
 • Topo: Mel, Bagas Vermelhas, Amora, Ameixa
 • Coração: Jasmim, Noz-moscada, Rosa, Lírio-do-Vale
-• Fundo: Patchouli, Chocolate, Caramelo, Baunilha, Fava Tonka, Âmbar, Almíscar, Sândalo
+• Fundo: Patchouli, Chocolate, Caramelo, Baunilha, Fava Tonka, Âmbar, Almíscar e Sândalo
 
 Ocasião: uso noturno, festas, outono/inverno.`
-},
-     { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" { 
-  id:"p1",
-  name:"136 - JP Scandal F 25ml",
-  price: 79.00,
-  priceCard: 86.74,
-  installments: 4,
-  pixOff: 0.07,
-  tag:"Mais vendido",
-  category:"Perfumes 25ml",
-  image:"img/produtos/p1.jpg",
-  descriptionFull: `A Brand Collection N° 136 é inspirada no Scandal (Jean Paul Gaultier) — Chipre Floral Gourmand.
-Perfume intenso, doce e sensual, com destaque para mel e flores. Ideal para noites e clima frio.
+  },
 
-Notas:
-Topo: Mel, Bagas Vermelhas, Amora, Ameixa.
-Coração: Jasmim, Noz-moscada, Rosa, Lírio-do-Vale.
-Fundo: Patchouli, Chocolate, Caramelo, Baunilha, Fava Tonka, Âmbar, Almíscar, Sândalo.`
-},
+  {
+    id:"p2",
+    name:"087 - Olympea F 25ml",
+    price: 79.00,
+    priceCard: 86.74,
+    installments: 4,
+    pixOff: 0.07,
+    tag:"Mais vendido",
+    category:"Perfumes 25ml",
+    image:"img/produtos/p2.jpg",
+    descriptionFull: `Descrição em breve.`
+  },
+
+  // ... resto dos produtos
+];
      { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
      { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
      { id:"p5", name:"233 - Armani Because It’s You F - 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p5.jpg" },
@@ -731,6 +732,7 @@ document.addEventListener("click", (e) => {
     openProductModal(card.dataset.pid);
   }
 });
+
 
 
 
