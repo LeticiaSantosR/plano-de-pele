@@ -614,6 +614,14 @@ document.addEventListener("click", (e) => {
   const p = (PRODUCTS || []).find(x => x.id === id);
   if (p) openProductModal(p);
 });
+document.addEventListener("click", function(e){
+  const card = e.target.closest(".card[data-pid]");
+  if (!card) return;
+
+  const id = card.dataset.pid;
+  const p = PRODUCTS.find(prod => prod.id === id);
+  if (p) openProductModal(p);
+});
 
 
 
