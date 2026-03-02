@@ -725,7 +725,7 @@ function installmentText(total, n){
   return `${n}x de ${priceBRL(each)} sem juros`;
 }
 
-  const modal = document.getElementById("productModal");
+
   modal?.classList.remove("open");
   modal?.setAttribute("aria-hidden", "true");
 }
@@ -751,6 +751,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
