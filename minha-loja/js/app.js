@@ -550,30 +550,65 @@ document.body.addEventListener("click", (e) => {
      // wireCarouselButtons();
      wireEvents();
    }
-   function openProductModal(productId){
+  function priceBRL(v){
+  return (Number(v) || 0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
+}
+
+function installmentText(total, n){
+  const each = (Number(total) || 0) / (Number(n) || 1);
+  return `${n}x de ${priceBRL(each)} sem juros`;
+}
+
+function openProductModal(productId){
   const p = PRODUCTS.find(x => x.id === productId);
   if (!p) return;
 
   const modal = document.getElementById("productModal");
-  const img = document.getElementById("modalImg");
-  const title = document.getElementById("modalTitle");
-  const price = document.getElementById("modalPrice");
-  const text = document.getElementById("modalText");
-  const buyBtn = document.getElementById("modalBuyBtn");
+  const content = document.getElementById("productModalContent");
+  if (!modal || !content) return;
 
-  img.src = p.image;
-  img.alt = p.name;
-  title.textContent = p.name;
-  price.textContent = typeof formatBRL === "function" ? formatBRL(p.price) : `R$ ${p.price}`;
-  text.textContent = p.descriptionFull || p.descriptionShort || "";
+  const pricePix = Number(p.price) || 0;
+  const priceCard = Number(p.priceCard ?? 86.74) || 0;
+  const inst = Number(p.installments || 4);
 
-  buyBtn.onclick = () => {
-    if (typeof addToCart === "function") addToCart(p.id);
-    closeProductModal();
-  };
+  const desc = p.descriptionFull || p.desc || "Descrição em breve.";
 
-  modal.classList.remove("hidden");
+  content.innerHTML = `
+    <div class="pm-grid">
+      <div class="pm-media">
+        <img class="pm-img" src="${p.image}" alt="${p.name}">
+      </div>
+
+      <div class="pm-info">
+        <h2 class="pm-title">${p.name}</h2>
+
+        <div class="pm-prices">
+          <div class="pm-line"><strong>${priceBRL(pricePix)}</strong> <span>no pix</span></div>
+          <div class="pm-line"><strong>${priceBRL(priceCard)}</strong> <span>no cartão</span></div>
+          <div class="pm-sub">${installmentText(priceCard, inst)}</div>
+        </div>
+
+        <div class="pm-desc">
+          ${String(desc).replace(/\n/g, "<br>")}
+        </div>
+
+        <button class="pm-buy" type="button" data-action="add" data-id="${p.id}">
+          Comprar
+        </button>
+      </div>
+    </div>
+  `;
+
+  modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+}
+
+function closeProductModal(){
+  const modal = document.getElementById("productModal");
+  if (!modal) return;
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
 }
 
 function closeProductModal(){
@@ -667,6 +702,19 @@ document.addEventListener("click", function(e){
   if (p) openProductModal(p);
 });
 
+document.addEventListener("click", (e) => {
+  // fechar modal (clicando overlay ou X)
+  if (e.target.matches("[data-close='1']")) {
+    closeProductModal();
+    return;
+  }
+
+  // abrir modal clicando no card
+  const card = e.target.closest(".card[data-pid]");
+  if (card) {
+    openProductModal(card.dataset.pid);
+  }
+});
 
 
 
