@@ -1103,5 +1103,48 @@ img{ display:block; max-width:100%; }
     flex: 0 0 auto;
   }
 }
+/* ===== HEADER (MOBILE) ===== */
+.mobile-only { display: none; }  /* padrão: some no desktop */
+
+@media (max-width: 860px){
+
+  /* mostra o botão do menu no celular */
+  .mobile-only { display: inline-flex; }
+
+  /* deixa o header “quebrar” e ficar organizado */
+  .header-row{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* logo um pouco menor no celular */
+  .logo{ height: 40px; }
+
+  /* ações (Contato + Carrinho) alinhadas à direita */
+  .header-actions{
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  /* busca vira uma linha inteira abaixo */
+  .search{
+    order: 99;
+    width: 100%;
+    flex: 0 0 100%;
+    border-radius: 14px;   /* fica mais “loja grande” */
+    padding: 10px 12px;
+  }
+
+  /* iPhone: 16px evita “zoom” automático no input */
+  .search input{
+    font-size: 16px;
+  }
+
+  /* botão da lupa com área de toque boa */
+  .search-btn{
+    font-size: 18px;
+    padding: 10px 12px;
+  }
+}
 
 
