@@ -78,7 +78,15 @@
       Você só precisa ajustar nome/preço/tag e colocar imagens em img/produtos/
    */
    const PRODUCTS = [
-     { id:"p1", name:"136 - JP Scandal F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", category:"Perfumes 25ml", image:"img/produtos/p1.jpg"  desc: `A Brand Collection N° 136 é inspirada no Scandal (Jean Paul Gaultier), um Chipre Floral Gourmand intenso, doce e sensual, com destaque para mel e notas florais. Ideal para noites e clima frio.
+     { 
+  id:"p1",
+  name:"136 - JP Scandal F 25ml",
+  price: 79.00,
+  pixOff: 0.07,
+  tag:"Mais vendido",
+  category:"Perfumes 25ml",
+  image:"img/produtos/p1.jpg",
+  desc: `A Brand Collection N° 136 é inspirada no Scandal (Jean Paul Gaultier), um Chipre Floral Gourmand intenso, doce e sensual, com destaque para mel e notas florais. Ideal para noites e clima frio.
 
 Notas Olfativas (inspiradas no original):
 • Topo: Mel, Bagas Vermelhas, Amora, Ameixa
@@ -606,6 +614,7 @@ document.addEventListener("click", (e) => {
   const p = (PRODUCTS || []).find(x => x.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
