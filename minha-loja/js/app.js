@@ -706,16 +706,15 @@ Contém 25ml`,
      const cart = loadCart();
      renderCart(cart);
    
-     wireCarouselButtons();
-     wireEvents();
-   }
-   
-  const modal = document.getElementById("productModal");
-  modal.classList.add("hidden");
-  document.body.style.overflow = "";
+    wireCarouselButtons();
+wireEvents();
+// <-- removeu a chave extra aqui
 
+const modal = document.getElementById("productModal");
+modal.classList.add("hidden");
+document.body.style.overflow = "";
 
-   document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init);
 
 function priceBRL(v){
   return (Number(v) || 0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
@@ -799,6 +798,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
