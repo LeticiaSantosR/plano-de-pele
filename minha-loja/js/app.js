@@ -793,7 +793,7 @@ function closeProductModal(){
 document.addEventListener("click", (e) => {
   if (e.target?.getAttribute?.("data-close")) closeProductModal();
 });
-  }
+  
 });
 document.addEventListener("click", (e) => {
   const card = e.target.closest?.(".card[data-pid]");
@@ -811,6 +811,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
