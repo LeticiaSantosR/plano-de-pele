@@ -28,6 +28,26 @@
         <input id="searchInput" placeholder="O que você procura?" />
         <button class="search-btn" id="btnSearch" type="button" aria-label="Buscar">🔎</button>
       </div>
+      <!-- BUSCA -->
+<div class="searchbar" id="searchbar">
+  <button class="search-icon" id="searchToggle" type="button" aria-label="Buscar">
+    🔎
+  </button>
+
+  <input
+    class="search-input"
+    id="searchInput"
+    type="search"
+    placeholder="Buscar por nome ou código (ex: 233)"
+    autocomplete="off"
+  />
+
+  <button class="search-clear" id="searchClear" type="button" aria-label="Limpar busca">
+    ✕
+  </button>
+</div>
+
+<div class="search-info" id="searchInfo" style="display:none;"></div>
 
       <div class="header-actions">
         <a class="action-link" href="#contato" title="Contato">Contato</a>
@@ -187,3 +207,4 @@
 
   <script src="js/app.js"></script>
 </body>
+
