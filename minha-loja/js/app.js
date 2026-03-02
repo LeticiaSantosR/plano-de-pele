@@ -127,7 +127,9 @@ Brand Collection- N°087🥰
     tag: "Mais vendido",
     category: "Perfumes 25ml",
     image: "img/produtos/p3.jpg",
-    desc: `Um perfume feminino oriental gourmand !!!
+    desc: `Um dos lançamentos mais esperado de 2023 !!!! 
+
+Um perfume feminino oriental gourmand !!!
 
 Demonstra a sensualidade intensa e viciante da mulher irresistível, representando um jardim vistoso e repleto de mistérios, onde todos os pecados são permitidos.
 
@@ -141,9 +143,8 @@ Nota de fundo é Baunilha.
 
 Brandcollection Nº 324
 
-Contém 25 ml
-
-`,
+Contém 25 ml`,
+     
   },
   {
     id: "p4",
@@ -824,6 +825,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
