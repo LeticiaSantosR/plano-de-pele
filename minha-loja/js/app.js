@@ -782,12 +782,6 @@ function openProductModal(p){
   document.body.style.overflow = "hidden";
 }
 
-function closeProductModal(){
-  const modal = document.getElementById("productModal");
-  modal?.classList.remove("open");
-  modal?.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
 
 document.addEventListener("click", (e) => {
   if (e.target?.getAttribute?.("data-close")) closeProductModal();
@@ -809,6 +803,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
