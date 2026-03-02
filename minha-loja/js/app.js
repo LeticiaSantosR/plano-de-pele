@@ -95,17 +95,107 @@ Notas Olfativas (inspiradas no original):
 
 Ocasião: uso noturno, festas, outono/inverno.`
 },
-     { id:"p2", name:"087 - Olympea F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p2.jpg" },
-     { id:"p3", name:"324 - Jean Paul Gualtier La Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p3.jpg" },
-     { id:"p4", name:"012 - La Vie Est Belle F 25ml", price: 79.00, pixOff: 0.07, tag:"Mais vendido", image:"img/produtos/p4.jpg" },
-     { id:"p5", name:"233 - Armani Because It’s You F - 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p5.jpg" },
-     { id:"p6", name:"159 - YSL Libre F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
-     { id:"p7", name:"420 - Dior Etoile Bonne - 25ml (Infantil)", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p7.jpg" },
-     { id:"p8", name:"116 - Invictus Paco Rabanne M 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p8.jpg" },
-     { id:"p9", name:"238- Idole Lancôme F 25ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p9.jpg" },
-     { id:"p10", name:"093 - Dolce & Gabanna Light Blue F 25 ml", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p10.jpg" },
-     { id:"p11", name:"Produto 6", price: 79.00, pixOff: 0.07, tag:"Raridade", image:"img/produtos/p6.jpg" },
-   ];
+    {
+    id: "p2",
+    name: "087 - Olympea F 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Mais vendido",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p2.jpg",
+    desc: ``,
+  },
+  {
+    id: "p3",
+    name: "324 - Jean Paul Gualtier La Belle F 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Mais vendido",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p3.jpg",
+    desc: ``,
+  },
+  {
+    id: "p4",
+    name: "012 - La Vie Est Belle F 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Mais vendido",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p4.jpg",
+    desc: ``,
+  },
+  {
+    id: "p5",
+    name: "233 - Armani Because It’s You F - 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p5.jpg",
+    desc: ``,
+  },
+  {
+    id: "p6",
+    name: "159 - YSL Libre F 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p6.jpg",
+    desc: ``,
+  },
+  {
+    id: "p7",
+    name: "420 - Dior Etoile Bonne - 25ml (Infantil)",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p7.jpg",
+    desc: ``,
+  },
+  {
+    id: "p8",
+    name: "116 - Invictus Paco Rabanne M 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p8.jpg",
+    desc: ``,
+  },
+  {
+    id: "p9",
+    name: "238- Idole Lancôme F 25ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p9.jpg",
+    desc: ``,
+  },
+  {
+    id: "p10",
+    name: "093 - Dolce & Gabanna Light Blue F 25 ml",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p10.jpg",
+    desc: ``,
+  },
+  {
+    id: "p11",
+    name: "Produto 6",
+    price: 79.0,
+    pixOff: 0.07,
+    tag: "Raridade",
+    category: "Perfumes 25ml",
+    image: "img/produtos/p6.jpg",
+    desc: ``,
+  },
+];
    
    function formatBRL(v){
      return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
@@ -622,6 +712,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
