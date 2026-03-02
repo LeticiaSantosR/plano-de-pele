@@ -751,7 +751,6 @@ function installmentText(total, n){
   const each = (Number(total) || 0) / (Number(n) || 1);
   return `${n}x de ${priceBRL(each)} sem juros`;
 }
-
 function openProductModal(p){
   const modal = document.getElementById("productModal");
   const content = document.getElementById("productModalContent");
@@ -793,8 +792,7 @@ function closeProductModal(){
 document.addEventListener("click", (e) => {
   if (e.target?.getAttribute?.("data-close")) closeProductModal();
 });
-  
-});
+
 document.addEventListener("click", (e) => {
   const card = e.target.closest?.(".card[data-pid]");
   if (!card) return;
@@ -811,6 +809,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
