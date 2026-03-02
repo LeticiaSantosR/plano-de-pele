@@ -741,7 +741,11 @@ function closeProductModal(){
   document.body.style.overflow = "";
 }
 
-   document.addEventListener("DOMContentLoaded", init);
+   document.addEventListener("click", (e) => {
+  if (e.target?.getAttribute?.("data-close")) {
+    closeProductModal();
+  }
+});
 
 function priceBRL(v){
   return (Number(v) || 0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
@@ -803,6 +807,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
