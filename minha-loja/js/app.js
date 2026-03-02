@@ -103,7 +103,21 @@ Ocasião: uso noturno, festas, outono/inverno.`
     tag: "Mais vendido",
     category: "Perfumes 25ml",
     image: "img/produtos/p2.jpg",
-    desc: ``,
+    desc: `Inspiração : Olympéa
+
+Extremamente feminino. Fiel a seus valores inovadores, onde a provocação revela o espírito do tempo. Com uma sensualidade única e irreverente, a qual nada nem ninguém pode resistir.
+
+Familia Olfativa: Floral, Oriental
+
+🔸Notas de Topo: Tangerina Verde, Flor de Gengibre, Jasmim Aquático
+
+🔸Notas de Coração: Baunilha Salgada
+
+🔸Notas de Fundo: Ambergris, Caxemira, Sândalo
+
+Brand Collection- N°087🥰
+
+25ml`,
   },
   {
     id: "p3",
@@ -712,6 +726,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
