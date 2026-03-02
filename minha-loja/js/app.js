@@ -524,6 +524,72 @@ function closeProductModal(){
 
    document.addEventListener("DOMContentLoaded", init);
 
+function priceBRL(v){
+  return (Number(v) || 0).toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
+}
+
+function installmentText(total, n){
+  const each = (Number(total) || 0) / (Number(n) || 1);
+  return `${n}x de ${priceBRL(each)} sem juros`;
+}
+
+function openProductModal(p){
+  const modal = document.getElementById("productModal");
+  const content = document.getElementById("productModalContent");
+  if (!modal || !content) return;
+
+  const pricePix = Number(p.price) || 0;
+  const priceCard = Number(p.priceCard ?? 86.74) || 0; // padrão se você quiser
+  const inst = Number(p.installments || 4);
+
+  const desc = (p.desc || "Descrição em breve.");
+
+  content.innerHTML = `
+    <div class="pdetail">
+      <div class="pdetail-media">
+        <img src="${p.image}" alt="${p.name}">
+      </div>
+
+      <div class="pdetail-info">
+        <h2 class="pdetail-title">${p.name}</h2>
+
+        <div class="pdetail-prices">
+          <div class="pdetail-price">
+            <strong>${priceBRL(pricePix)}</strong>
+            <span>no Pix</span>
+          </div>
+
+          <div class="pdetail-price">
+            <strong>${priceBRL(priceCard)}</strong>
+            <span>no cartão • ${installmentText(priceCard, inst)}</span>
+          </div>
+        </div>
+
+        <button class="btn-buy" type="button" data-add="${p.id}">Adicionar ao carrinho</button>
+      </div>
+
+      <div class="pdetail-desc">
+        <h3>Descrição do produto</h3>
+        <div class="pdetail-desc-text">${desc}</div>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeProductModal(){
+  const modal = document.getElementById("productModal");
+  modal?.classList.remove("open");
+  modal?.setAttribute("aria-hidden", "true");
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target?.getAttribute?.("data-close")){
+    closeProductModal();
+  }
+});
 
 
 
