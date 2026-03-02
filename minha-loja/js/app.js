@@ -576,7 +576,6 @@ function installmentText(total, n){
   return `${n}x de ${priceBRL(each)} sem juros`;
 }
 
-function openProductModal(productId){
   const p = PRODUCTS.find(x => x.id === productId);
   if (!p) return;
 
@@ -732,6 +731,7 @@ document.addEventListener("click", (e) => {
     openProductModal(card.dataset.pid);
   }
 });
+
 
 
 
