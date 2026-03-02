@@ -1220,6 +1220,13 @@ img{ display:block; max-width:100%; }
   .pmodal-card{ margin: 3vh auto; max-height: 92vh; }
 }
 
+.card{
+  cursor:pointer;
+}
+
+.card *{
+  pointer-events: auto;
+}
 
 
 
