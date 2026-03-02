@@ -1016,3 +1016,53 @@ img{ display:block; max-width:100%; }
   cursor:pointer;
   border:none;
 }
+/* ===== BUSCA ===== */
+.searchbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  padding:10px;
+  margin: 14px 0;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+.search-icon, .search-clear{
+  border:0;
+  background:transparent;
+  font-size:18px;
+  cursor:pointer;
+  padding:6px 8px;
+}
+
+.search-input{
+  width:100%;
+  border:0;
+  outline:none;
+  font-size:15px;
+}
+
+.search-clear{ display:none; }
+
+.search-info{
+  margin: 8px 0 0;
+  opacity:.75;
+  font-size:13px;
+}
+
+/* Mobile: deixa o input "recolhível" e a lupa sempre visível */
+@media (max-width: 860px){
+  .searchbar{
+    position: sticky;
+    top: 10px;
+    z-index: 50;
+  }
+  .searchbar.is-collapsed .search-input{
+    display:none;
+  }
+  .searchbar.is-collapsed .search-clear{
+    display:none;
+  }
+}
