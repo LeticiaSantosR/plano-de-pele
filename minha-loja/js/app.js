@@ -579,11 +579,11 @@ Contém 25ml`,
      });
    
      // Carrinho
-     $("#btnOpenCart").addEventListener("click", () => openDrawer("cartDrawer"));
-     $("#btnCloseCart").addEventListener("click", () => closeDrawer("cartDrawer"));
+     const $("#btnOpenCart").addEventListener("click", () => openDrawer("cartDrawer"));
+    const  $("#btnCloseCart").addEventListener("click", () => closeDrawer("cartDrawer"));
    
      // Busca
-     $("#btnSearch").addEventListener("click", () => {
+     const $("#btnSearch").addEventListener("click", () => {
        const q = ($("#searchInput").value || "").trim().toLowerCase();
        const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
        renderAllProducts(filtered);
@@ -825,6 +825,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
