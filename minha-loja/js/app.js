@@ -568,123 +568,121 @@ Contém 25ml`,
    }
    
    function wireEvents(){
-     // Menu
-     $("#btnOpenMenu").addEventListener("click", () => openDrawer("menuDrawer"));
-     $("#btnCloseMenu").addEventListener("click", () => closeDrawer("menuDrawer"));
-   
-     // Fecha drawer clicando fora
-     ["menuDrawer","cartDrawer"].forEach(id => {
-       const el = document.getElementById(id);
-       el.addEventListener("click", (e) => { if(e.target === el) closeDrawer(id); });
-     });
-   
-     // Carrinho
-     const $("#btnOpenCart").addEventListener("click", () => openDrawer("cartDrawer"));
-    const  $("#btnCloseCart").addEventListener("click", () => closeDrawer("cartDrawer"));
-   
-     // Busca
-     const $("#btnSearch").addEventListener("click", () => {
-       const q = ($("#searchInput").value || "").trim().toLowerCase();
-       const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
-       renderAllProducts(filtered);
-       location.hash = "#ver-tudo";
-     });
-   
-     $("#searchInput").addEventListener("input", (e) => {
-       const q = String(e.target.value || "").trim().toLowerCase();
-       const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
-       renderAllProducts(filtered);
-     });
-   
-     // Delegação: comprar + carrinho inc/dec/remove
-     document.body.addEventListener("click", (e) => {
-       const btn = e.target.closest("button[data-action]");
-       if(!btn) return;
-   
-       const action = btn.dataset.action;
-       const id = btn.dataset.id;
-   
-       const cart = loadCart();
-   
-       if(action === "add"){
-         cart[id] = (cart[id] || 0) + 1;
-         saveCart(cart);
-         renderCart(cart);
-         openDrawer("cartDrawer");
-         return;
-       }
-   
-       if(action === "inc"){
-         cart[id] = (cart[id] || 0) + 1;
-         saveCart(cart);
-         renderCart(cart);
-         return;
-       }
-   
-       if(action === "dec"){
-         const next = (cart[id] || 0) - 1;
-         if(next <= 0) delete cart[id];
-         else cart[id] = next;
-         saveCart(cart);
-         renderCart(cart);
-         return;
-       }
-   
-       if(action === "remove"){
-         delete cart[id];
-         saveCart(cart);
-         renderCart(cart);
-         return;
-       }
-     });
-   
-     // ✅ FINALIZAR: abre modal do WhatsApp com total
-     $("#btnCheckout").addEventListener("click", () => {
-       const cart = loadCart();
-       const total = cartTotal(cart);
-       if(total <= 0){
-         alert("Seu carrinho está vazio.");
-         return;
-       }
-       $("#wppTotal").textContent = formatBRL(total);
-       openModal("wppModal");
-     });
-   
-     // Fechar modal wpp
-     $("#btnCloseWpp").addEventListener("click", () => closeModal("wppModal"));
-   
-     // ✅ Enviar pedido para WhatsApp (campos obrigatórios)
-     $("#btnSendWpp").addEventListener("click", () => {
-       const cart = loadCart();
-       const total = cartTotal(cart);
-       if(total <= 0){
-         alert("Carrinho vazio.");
-         return;
-       }
-   
-       const name = $("#wppName").value.trim();
-       const phone = $("#wppPhone").value.trim();
-       const address = $("#wppAddress").value.trim();
-       const obs = $("#wppObs").value.trim();
-   
-       if(!name || !phone || !address){
-         alert("Preencha Nome, Telefone e Endereço.");
-         return;
-       }
-   
-       const customer = { name, phone, address, obs };
-       const message = buildWhatsAppMessage(cart, customer);
-       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-   
-       window.open(url, "_blank");
-   
-       // opcional: limpar carrinho
-       saveCart({});
-       renderCart({});
-   
-       closeModal("wppModal");
-       closeDrawer("cartDrawer");
-     });
+  // Menu
+  $("#btnOpenMenu")?.addEventListener("click", () => openDrawer("menuDrawer"));
+  $("#btnCloseMenu")?.addEventListener("click", () => closeDrawer("menuDrawer"));
+
+  // Fecha drawer clicando fora
+  ["menuDrawer","cartDrawer"].forEach(id => {
+    const el = document.getElementById(id);
+    el?.addEventListener("click", (e) => { if(e.target === el) closeDrawer(id); });
+  });
+
+  // Carrinho (abrir/fechar drawer)
+  $("#btnOpenCart")?.addEventListener("click", () => openDrawer("cartDrawer"));
+  $("#btnCloseCart")?.addEventListener("click", () => closeDrawer("cartDrawer"));
+
+  // Busca
+  $("#btnSearch")?.addEventListener("click", () => {
+    const q = ($("#searchInput")?.value || "").trim().toLowerCase();
+    const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
+    renderAllProducts(filtered);
+    location.hash = "#ver-tudo";
+  });
+
+  $("#searchInput")?.addEventListener("input", (e) => {
+    const q = String(e.target?.value || "").trim().toLowerCase();
+    const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q));
+    renderAllProducts(filtered);
+  });
+
+  // Delegação: comprar + carrinho inc/dec/remove
+  document.body.addEventListener("click", (e) => {
+    const btn = e.target.closest?.("button[data-action]");
+    if(!btn) return;
+
+    const action = btn.dataset.action;
+    const id = btn.dataset.id;
+    if(!id) return;
+
+    const cart = loadCart();
+
+    if(action === "add"){
+      cart[id] = (cart[id] || 0) + 1;
+      saveCart(cart);
+      renderCart(cart);
+      openDrawer("cartDrawer");
+      return;
+    }
+
+    if(action === "inc"){
+      cart[id] = (cart[id] || 0) + 1;
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+
+    if(action === "dec"){
+      const next = (cart[id] || 0) - 1;
+      if(next <= 0) delete cart[id];
+      else cart[id] = next;
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+
+    if(action === "remove"){
+      delete cart[id];
+      saveCart(cart);
+      renderCart(cart);
+      return;
+    }
+  });
+
+  // Finalizar (WhatsApp)
+  $("#btnCheckout")?.addEventListener("click", () => {
+    const cart = loadCart();
+    const total = cartTotal(cart);
+    if(total <= 0){
+      alert("Seu carrinho está vazio.");
+      return;
+    }
+    $("#wppTotal").textContent = formatBRL(total);
+    openModal("wppModal");
+  });
+
+  $("#btnCloseWpp")?.addEventListener("click", () => closeModal("wppModal"));
+
+  $("#btnSendWpp")?.addEventListener("click", () => {
+    const cart = loadCart();
+    const total = cartTotal(cart);
+    if(total <= 0){
+      alert("Carrinho vazio.");
+      return;
+    }
+
+    const name = $("#wppName")?.value.trim();
+    const phone = $("#wppPhone")?.value.trim();
+    const address = $("#wppAddress")?.value.trim();
+    const obs = $("#wppObs")?.value.trim();
+
+    if(!name || !phone || !address){
+      alert("Preencha Nome, Telefone e Endereço.");
+      return;
+    }
+
+    const customer = { name, phone, address, obs };
+    const message = buildWhatsAppMessage(cart, customer);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+
+    saveCart({});
+    renderCart({});
+    closeModal("wppModal");
+    closeDrawer("cartDrawer");
+  });
+}
    
      // Botão flutuante do WhatsApp (abre conversa “normal”)
      const float = document.getElementById("wppFloat");
@@ -825,6 +823,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
