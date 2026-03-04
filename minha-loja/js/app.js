@@ -689,7 +689,7 @@ Contém 25ml`,
      if (float) {
        float.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Quero tirar uma dúvida 🙂")}`;
      }
-   }
+   
    
    /* ===== Init ===== */
    function init(){
@@ -823,6 +823,7 @@ document.addEventListener("click", function(e){
   const p = PRODUCTS.find(prod => prod.id === id);
   if (p) openProductModal(p);
 });
+
 
 
 
